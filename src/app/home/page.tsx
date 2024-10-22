@@ -1,8 +1,11 @@
+import Hero from '@/components/Hero';
 import React from 'react'
 
 const page = () => {
   return (
-    <div className='flex justify-center items-center'>Home Page</div>
+    <div className='flex justify-center items-center'>
+      <Hero />
+    </div>
   )
 }
 

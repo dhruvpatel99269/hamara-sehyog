@@ -30,11 +30,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col w-full bg-white`}
       >
-        <FloatingNav navItems={navItems} />
-        {children}
-        <Footer />
+        <div className="mt-0 w-full">
+          <FloatingNav navItems={navItems} />
+        </div>
+        <div className="mt-20 w-full">
+          {children}
+        </div>
+        <div className="mt-0 w-full">
+          <Footer />
+        </div>
       </body>
     </html>
   );

@@ -4,11 +4,22 @@ import React from 'react'
 const Hero = () => {
   return (
     <div className='flex flex-col justify-center items-center w-full'>
-      <div className='w-full flex justify-center items-center bg-white'>
-        <Image src="/cover3.jpg" alt='cover-image' width={1024} height={200} className='w-full h-full' style={{
-          filter: 'grayscale(0%) brightness(0.4) contrast(100%)',
-          transition: 'filter 0.3s ease',
-        }} />
+      <div className='w-full flex flex-col justify-center items-center bg-white'>
+        <div className="relative bg-cover flex justify-center items-center bg-center w-full h-[100vh] mt-0" style={{ backgroundImage: 'url(/cover3.jpg)' }}>
+          {/* Overlay for dull effect */}
+          <div className="flex justify-center items-center absolute inset-0 bg-black opacity-50"></div>
+          <div className="relative container mx-auto h-full flex flex-col justify-center items-center text-white space-y-6">
+            <div className="text-9xl md:text-7xl font-semibold flex justify-center items-center">
+            Empowering Change, One Step at a Time
+            </div>
+            <div className="mt-4 font-light md:text-xl max-w-2xl flex justify-center items-center">
+              Learn more about our non-profit organization and our mission to make a positive impact on the world through our charitable initiatives
+            </div>
+            <div className='flex justify-center items-center w-fit py-4 px-6 rounded-xl bg-[#66B40B] text-white text-lg'>
+              Donate Now
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className='flex flex-col justify-center items-center w-full px-12 bg-orange-50'>
@@ -162,10 +173,10 @@ const Hero = () => {
         <div className='flex justify-center items-center w-5/6 bg-[#66B40B] py-10 px-6 rounded-xl top-[-40px] relative'>
           <div className='flex flex-col justify-start items-center w-3/4'>
             <div className='flex'>
-            We can create a better tomorrow
-            </div>  
+              We can create a better tomorrow
+            </div>
             <div className='flex'>
-            Every dollar counts and helps us bring hope and essential resources to those in need.
+              Every dollar counts and helps us bring hope and essential resources to those in need.
             </div>
           </div>
 
@@ -173,7 +184,7 @@ const Hero = () => {
             Donate Now
           </div>
         </div>
-        
+
         <div className='flex justify-center items-center w-full'>
           <div className='flex justify-center items-center w-1/2'>
             <Image src="/impact1.jpg" alt='volunteer image' width={500} height={500} className='w-2/3 h-2/3 rounded-2xl' />

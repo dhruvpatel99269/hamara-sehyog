@@ -34,7 +34,7 @@ const WorkPage: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Image 1 */}
             <div className="rounded-lg overflow-hidden shadow-lg">
-              <img
+              <Image
                 src="/work1.jpg"
                 alt="Act of kindness 1"
                 className="w-full h-full object-cover"
@@ -43,7 +43,7 @@ const WorkPage: React.FC = () => {
 
             {/* Image 2 - Spans 2 columns */}
             <div className="rounded-lg overflow-hidden shadow-lg col-span-1 sm:col-span-2">
-              <img
+              <Image
                 src="/work2.jpg"
                 alt="Act of kindness 2"
                 className="w-full h-full object-cover"
@@ -53,7 +53,7 @@ const WorkPage: React.FC = () => {
             <div className="">
               {/* Image 3 - Takes the entire third column */}
               <div className="rounded-lg overflow-hidden shadow-lg col-span-1 mb-8">
-                <img
+                <Image
                   src="/work3.jpg"
                   alt="Act of kindness 3"
                   className="w-full h-full object-cover"
@@ -62,7 +62,7 @@ const WorkPage: React.FC = () => {
 
               {/* Image 4 - Takes the entire fourth column */}
               <div className="rounded-lg overflow-hidden shadow-lg col-span-1">
-                <img
+                <Image
                   src="/work4.jpg"
                   alt="Act of kindness 4"
                   className="w-full h-full object-cover"
@@ -76,7 +76,7 @@ const WorkPage: React.FC = () => {
               <h3 className='text-2xl mb-5 font-semibold text-left'>
                 How we work
               </h3>
-              <p className='text-left '>We collaborate with local communities, volunteers, and donors to achieve our goal of making a meaningful impact on people's lives. Our non-profit organization strives to make a positive difference in society by supporting those in need.</p>
+              <p className='text-left '>We collaborate with local communities, volunteers, and donors to achieve our goal of making a meaningful impact on people&apos;s lives. Our non-profit organization strives to make a positive difference in society by supporting those in need.</p>
               <a href="#" className='mt-6 text-lg font-semibold'>Learn More →</a>
             </div>
 
@@ -84,7 +84,7 @@ const WorkPage: React.FC = () => {
               <h3 className='text-2xl mb-5 font-semibold text-left'>
                 Proofing our impact
               </h3>
-              <p className='text-left '>We are committed to transparency and accountability which is why we regularly share our impact reports with our donors. Our non-profit organization's work is evidence-based, and we consistently strive to improve our impact through innovative solutions.</p>
+              <p className='text-left '>We are committed to transparency and accountability which is why we regularly share our impact reports with our donors. Our non-profit organization&apos;s work is evidence-based, and we consistently strive to improve our impact through innovative solutions.</p>
               <a href="#" className='mt-6 text-lg font-semibold'>See Proof →</a>
             </div>
           </div>

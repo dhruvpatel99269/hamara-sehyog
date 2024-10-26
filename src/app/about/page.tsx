@@ -149,7 +149,7 @@ const page = () => {
             </div>
 
             <div className='flex justify-center items-center w-full'>
-              Non-profit Organisation's vision is to create a world where all people have equal access to education and healthcare. Our mission is to provide the necessary resources and support to underprivileged communities to improve their quality of life.
+              Non-profit Organisation&apos;s vision is to create a world where all people have equal access to education and healthcare. Our mission is to provide the necessary resources and support to underprivileged communities to improve their quality of life.
             </div>
 
             <div className='flex flex-col justify-center items-center w-full'>

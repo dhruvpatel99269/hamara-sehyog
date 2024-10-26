@@ -211,7 +211,7 @@ const Hero = () => {
             Get inspired by the remarkable stories of transformation through our non-profit organization. Join us in making a positive impact today.
           </div>
 
-          <div className='flex justify-center items-center w-5/6 bg-white rounded-3xl border-2 mx-12 mt-24'>
+          <div className='flex justify-center items-center w-5/6 bg-white rounded-3xl border-2 mx-12 mt-24 mb-24'>
             <div className='flex flex-col justify-center items-center w-1/2 border-r-2'>
               <div className='flex justify-center items-center w-2/3 top-[-40px] relative'>
                 <Image src="/impact2.jpg" alt='meeting image' width={200} height={200} className='w-full h-2/3 rounded-xl' />

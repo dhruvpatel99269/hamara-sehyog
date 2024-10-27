@@ -100,7 +100,7 @@ const WorkPage: React.FC = () => {
           </div>
         </div>
 
-        <div className='flex justify-center items-center gap-20 mt-16'>
+        <div className='flex justify-center items-center gap-20 mt-16 text-[#2C3A04]'>
           <div className='flex flex-col w-2/5 -ml-12 justify-center items-center text-left gap-5'>
 
             <div className='flex text-5xl font-medium'>

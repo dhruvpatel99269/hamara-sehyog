@@ -31,12 +31,15 @@ const WorkPage: React.FC = () => {
         {/* Image Grid Wrapper with Black Background */}
         <div>
           {/* Image Grid */}
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Image 1 */}
             <div className="rounded-lg overflow-hidden shadow-lg">
               <Image
                 src="/work1.jpg"
                 alt="Act of kindness 1"
+                width={300}
+                height={200}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -46,16 +49,20 @@ const WorkPage: React.FC = () => {
               <Image
                 src="/work2.jpg"
                 alt="Act of kindness 2"
+                width={600}
+                height={400}
                 className="w-full h-full object-cover"
               />
             </div>
 
-            <div className="">
+            <div>
               {/* Image 3 - Takes the entire third column */}
               <div className="rounded-lg overflow-hidden shadow-lg col-span-1 mb-8">
                 <Image
                   src="/work3.jpg"
                   alt="Act of kindness 3"
+                  width={300}
+                  height={200}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -65,11 +72,14 @@ const WorkPage: React.FC = () => {
                 <Image
                   src="/work4.jpg"
                   alt="Act of kindness 4"
+                  width={300}
+                  height={200}
                   className="w-full h-full object-cover"
                 />
               </div>
             </div>
           </div>
+
           <div className='flex w-[80vw] gap-60 mt-36 justify-between'>
 
             <div className='flex flex-col items-start justify-center text-[#2C3A04]'>

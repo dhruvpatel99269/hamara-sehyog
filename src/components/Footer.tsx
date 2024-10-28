@@ -5,8 +5,8 @@ const Footer = () => {
   return (
     <>
       <div className='flex justify-center items-center w-full border-b-2 mb-12 border-t border-t-black'>
-        <div className='flex justify-center items-center w-5/6 mt-6 mb-10 space-x-4'>
-          <div className='w-1/4 flex flex-col justify-center items-center'>
+        <div className='flex flex-col lg:flex-row xl:flex-row justify-center items-center w-5/6 mt-6 mb-10 space-x-4'>
+          <div className='w-full md:w-1/2 lg:w-1/4 xl:w-1/4 flex flex-col justify-center items-center mt-6 lg:mt-0 xl:mt-0'>
             <div className='w-full flex justify-start items-center'>
               <Image src="/logo.jpg" alt='logo' width={200} height={200} className='w-1/3 h-1/3' />
             </div>
@@ -15,7 +15,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className='w-1/4 flex flex-col justify-center items-center'>
+          <div className='w-full md:w-1/2 lg:w-1/4 xl:w-1/4 flex flex-col justify-center items-center mt-6 lg:mt-0 xl:mt-0'>
             <div className='flex w-full justify-start items-center font-bold'>
               About Us
             </div>
@@ -39,7 +39,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className='w-1/4 flex flex-col justify-center items-center'>
+          <div className='w-full md:w-1/2 lg:w-1/4 xl:w-1/4 flex flex-col justify-center items-center mt-6 lg:mt-0 xl:mt-0'>
             <div className='flex w-full justify-start items-center font-bold'>
               Ways to give
             </div>
@@ -63,7 +63,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className='w-1/4 flex flex-col justify-center items-center'>
+          <div className='w-full md:w-1/2 lg:w-1/4 xl:w-1/4 flex flex-col justify-center items-center mt-6 lg:mt-0 xl:mt-0'>
             <div className='flex w-full justify-start items-center font-bold'>
               Contact Info
             </div>

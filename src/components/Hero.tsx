@@ -257,17 +257,17 @@ const Hero = () => {
           </div>
 
           <div className='flex justify-center items-center w-5/6 bg-white  border-gray-300 border-[1px]  text-[#2C3A04] rounded-3xl mx-12 mt-24 mb-24'>
-            <div className='flex flex-col justify-center items-center w-1/2  pb-20  border-r-gray-300 border-r-[1px] '>
+            <div className='flex flex-col justify-center items-center w-1/2 border-r pb-20'>
               <div className='flex justify-center items-center w-4/5 top-[-40px] relative'>
-                <Image src="/impact2.jpg" alt='meeting image' width={500} height={500} className='w-full h-full rounded-xl' />
+                <Image src="/impact3.jpg" alt='meeting image' width={500} height={500} className='w-full h-full rounded-xl' />
               </div>
 
               <div className='flex justify-start items-center w-4/5 text-2xl font-medium'>
-                The Special One
+                A Better Education for Everyone
               </div>
 
               <div className='flex justify-start items-center w-4/5 my-4'>
-                Join our non-profit organisation to help create a brighter future for those in need. Every donation counts towards making a difference in the lives of those less fortunate.
+                Our non-profit organisation is dedicated to improving access to education for all. With your support, we can help provide the resources and opportunities needed for success.
               </div>
 
               <div className='flex justify-start items-center w-4/5 text-[18px] font-semibold gap-2'>
@@ -281,9 +281,9 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className='flex flex-col justify-center items-center w-1/2  pb-20 border-r-2'>
+            <div className='flex flex-col justify-center items-center w-1/2  pb-20'>
               <div className='flex justify-center items-center w-4/5 top-[-40px] relative'>
-                <Image src="/impact3.jpg" alt='meeting image' width={400} height={300} className='w-full h-2/3 rounded-xl' />
+                <Image src="/impact3.jpg" alt='meeting image' width={500} height={500} className='w-full h-full rounded-xl' />
               </div>
 
               <div className='flex justify-start items-center w-4/5 text-2xl font-medium'>

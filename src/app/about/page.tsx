@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image';
-import { TiTick } from "react-icons/ti";
 
 const page = () => {
   return (

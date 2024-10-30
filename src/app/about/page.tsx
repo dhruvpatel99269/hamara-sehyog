@@ -7,20 +7,20 @@ const page = () => {
       <div className="relative bg-cover flex justify-center items-center bg-center w-full h-[60vh] mt-0" style={{ backgroundImage: 'url(/work-main.jpg)' }}>
         {/* Overlay for dull effect */}
         <div className="absolute inset-0 bg-black opacity-60"></div>
-        <div className="relative container mx-auto h-full flex flex-col justify-center items-start text-white">
-          <h1 className="text-9xl md:text-7xl font-semibold">
+        <div className="relative container mx-auto h-full flex flex-col justify-center items-start text-white pl-2 lg:pl-8 xl:pl-8">
+          <h1 className="text-5xl lg:text-7xl xl:text-7xl md:text-7xl font-semibold">
             About Us
           </h1>
-          <p className="mt-4 font-light text-base md:text-lg max-w-2xl text-left">
+          <p className="mt-4 font-light text-base md:text-lg lg:text-lg xl:text-lg max-w-2xl text-left">
             Learn more about our non-profit organization and our mission to make a positive impact on the world through our charitable initiatives
           </p>
         </div>
       </div>
 
-      <div className='flex flex-col justify-center relative items-center w-full  bg-[#F7F9F1]'>
-        <div className='w-4/5 flex justify-center items-center text-[#2C3A04]  gap-20'>
-          <div className='flex flex-col w-1/2 justify-center relative top-[-80px] items-center'>
-            <div className='flex w-full text-[40px] leading-tight font-semibold my-10'>
+      <div className='flex flex-col justify-center relative items-center w-full  bg-[#F7F9F1] p-2'>
+        <div className='flex flex-col lg:flex-row xl:flex-row w-full lg:w-4/5 xl:w-4/5 justify-center items-center text-[#2C3A04]  gap-20'>
+          <div className='flex flex-col w-full lg:w-1/2 xl:w-1/2 justify-center relative top-[-80px] items-center py-16 px-4 lg:py-0 xl:py-0 lg:px-0 xl:px-0'>
+            <div className='flex w-full text-[30px] lg:text-[40px] xl:text-[40px] leading-tight font-semibold my-10 justify-center items-center'>
               Making the world a better place
             </div>
 
@@ -44,8 +44,8 @@ const page = () => {
             </div>
           </div>
 
-          <div className='flex w-2/3 justify-center items-center  top-[-200px] relative'>
-            <div className='flex w-1/2 flex-col justify-center items-start mt-12 '>
+          <div className='flex flex-col md:flex-row lg:flex-row xl:flex-row w-full md:w-2/3 lg:w-2/3 xl:w-2/3 justify-center items-center  top-[-200px] relative space-x-0 md:space-x-12 lg:space-x-12 xl:space-x-12'> 
+            <div className='flex w-full md:w-1/2 lg:w-1/2 xl:w-1/2 flex-col justify-center items-center mt-0 md:mt-12 lg:mt-12 xl:mt-12 '>
               <div className='flex mt-20'>
                 <Image src="/about1.jpg" alt='image2' width={300} height={60} className='rounded-2xl' />
               </div>
@@ -55,7 +55,7 @@ const page = () => {
               </div>
             </div>
 
-            <div className='flex w-1/2 flex-col justify-center items-center'>
+            <div className='flex w-full md:w-1/2 lg:w-1/2 xl:w-1/2 flex-col justify-center items-center mt-10 md:mt-0 lg:mt-0 xl:mt-0'>
               <div className='flex'>
                 <Image src="/about3.jpg" alt='image2' width={300} height={100} className='rounded-2xl' />
               </div>
@@ -67,8 +67,8 @@ const page = () => {
           </div>
         </div>
 
-        <div className='flex justify-center items-center w-5/6 bg-white border-2 rounded-2xl relative max-h-[260px] pl-5'>
-          <div className='flex flex-col justify-start items-center w-1/3 py-5 px-6 border-r-[1px]'>
+        <div className='flex flex-col md:flex-row lg:flex-row xl:flex-row justify-center items-center w-full md:w-4/5 lg:w-5/6 xl:w-5/6 border-2 rounded-2xl relative h-fit lg:max-h-[260px] xl:max-h-[260px] pl-0 lg:pl-5 xl:pl-5 bg-white'>
+          <div className='flex flex-col justify-start items-center w-full md:w-1/3 lg:w-1/3 xl:w-1/3 my-5 px-6 border-b-2 md:border-r-2 lg:border-r-2 xl:border-r-2 md:border-b-[0px] lg:border-b-[0px] xl:border-b-[0px]'>
             <div className='flex py-2 justify-start items-center w-full text-[#D2D8C0] text-3xl font-dm-sans-500 font-bold'>
               01.
             </div>
@@ -92,7 +92,7 @@ const page = () => {
             </div>
           </div>
 
-          <div className='flex flex-col justify-start items-center w-1/3 py-5 px-6 border-r-[1px]'>
+          <div className='flex flex-col justify-start items-center w-full md:w-1/3 lg:w-1/3 xl:w-1/3 my-5 px-6 border-b-2 md:border-r-2 lg:border-r-2 xl:border-r-2 md:border-b-[0px] lg:border-b-[0px] xl:border-b-[0px]'>
             <div className='flex py-2 justify-start items-center w-full text-[#D2D8C0] text-3xl font-dm-sans-500 font-bold'>
               02.
             </div>
@@ -116,7 +116,7 @@ const page = () => {
             </div>
           </div>
 
-          <div className='flex flex-col justify-start items-center w-1/3 py-5 px-6'>
+          <div className='flex flex-col justify-start items-center w-full md:w-1/3 lg:w-1/3 xl:w-1/3 py-5 px-6'>
             <div className='flex py-2 justify-start items-center w-full text-[#D2D8C0] text-3xl font-dm-sans-500 font-bold'>
               03.
             </div>
@@ -142,39 +142,39 @@ const page = () => {
         </div>
 
 
-        <div className='flex flex-col w-4/5 top-[150px] relative'>
-          <Image src="/work2.jpg" alt='work-image' width={1000} height={1000} className='w-full h-[80vh] rounded-3xl' />
+        <div className='flex flex-col w-full md:w-4/5 lg:w-4/5 xl:w-4/5 h-1/2 top-[150px] relative p-2'>
+          <Image src="/work2.jpg" alt='work-image' width={1000} height={1000} className='w-full h-full lg:h-[80vh] xl:h-[80vh] rounded-3xl' />
         </div>
       </div>
 
-      <div className='flex flex-col justify-center items-center w-4/5 mt-32 text-[#2C3A04] '>
-        <div className='flex flex-col justify-center items-center w-2/3 mt-32'>
+      <div className='flex flex-col justify-center items-center w-full md:w-4/5 lg:w-4/5 xl:w-4/5 mt-32 text-[#2C3A04] p-2'>
+        <div className='flex flex-col justify-center items-center w-full md:w-2/3 lg:w-2/3 xl:w-2/3 mt-32'>
           <div className='flex justify-center items-center uppercase tracking-widest'>
             Make a Difference Today
           </div>
 
-          <div className='flex justify-center items-center text-center text-[44px] leading-tight font-semibold my-4'>
+          <div className='flex justify-center items-center text-center text-[22px] md:text-[33px] lg:text-[44px] xl:text-[44px] leading-tight font-semibold my-4'>
             Your contribution matters. Support our cause by making a donation.
           </div>
 
-          <div className='flex justify-center items-center text-center w-4/5 mb-4'>
+          <div className='flex justify-center items-center text-center w-full md:w-4/5 lg:w-4/5 xl:w-4/5 mb-4'>
             Every dollar counts and helps us bring hope, joy, and essential resources to those in need. Together, we can create a better tomorrow.
           </div>
 
-          <div className='flex cursor-pointer justify-center items-center w-fit text-xl font-semibold my-4 px-6 py-4 text-white bg-[#66B40B] hover:bg-green-600/95 transition duration-800 rounded-xl'>
+          <div className='flex cursor-pointer justify-center items-center w-fit text-xl font-semibold my-2 px-4 py-2 lg:my-4 lg:px-6 lg:py-4 xl:my-4 xl:px-6 xl:py-4 text-white bg-[#66B40B] hover:bg-green-600/95 transition duration-800 rounded-xl'>
             Donate Today
           </div>
         </div>
       </div>
 
-      <div className='flex justify-center items-center  bg-[#F7F9F1] w-full mt-24'>
-        <div className='flex justify-center items-center w-4/5 p-6 mt-24 mb-24'>
-          <div className='flex justify-center items-center w-1/2'>
+      <div className='flex flex-col justify-center items-center  bg-[#F7F9F1] w-full mt-24'>
+        <div className='flex flex-col lg:flex-row xl:flex-row justify-center items-center w-full md:w-4/5 lg:w-4/5 xl:w-4/5 p-6 mt-24 mb-24'>
+          <div className='flex justify-center items-center w-full lg:w-1/2 xl:w-1/2'>
             <Image src="/about5.jpg" alt='' width={300} height={300} className='rounded-3xl w-4/5 h-4/5 shadow-2xl' />
           </div>
 
-          <div className='flex flex-col justify-center items-center w-1/2 text-[#2C3A04]'>
-            <div className='flex  w-full text-5xl text-left tracking-wide font-semibold my-3'>
+          <div className='flex flex-col justify-center items-center w-full lg:w-1/2 xl:w-1/2 text-[#2C3A04] my-4 lg:my-0 xl:my-0'>
+            <div className='flex w-full text-5xl text-left tracking-wide font-semibold my-3'>
               Our Vision & Mission
             </div>
 

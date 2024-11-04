@@ -82,7 +82,7 @@ const Page = () => {
           </div>
 
           <div className="flex flex-col justify-center items-center w-full text-[#2C3A04]">
-            <div className="text-[44px] mt-32 leading-tight font-semibold w-full text-center">
+            <div className="text-[44px] mt-16 leading-tight font-semibold w-full text-center">
               Inspiring tales of transformation
             </div>
 

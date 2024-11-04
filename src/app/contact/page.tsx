@@ -5,7 +5,7 @@ import emailjs from "@emailjs/browser";
 import { styles } from '../styles';
 
 const Page = () => {
-  const formRef = useRef();
+  const formRef = useRef<HTMLFormElement>(null);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -14,20 +14,20 @@ const Page = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { target } = e;
     const { name, value } = target;
-
+  
     setForm({
       ...form,
       [name]: value,
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-
+  
     emailjs
       .send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
@@ -54,11 +54,11 @@ const Page = () => {
         (error) => {
           setLoading(false);
           console.error(error);
-
           alert("Ahh, something went wrong. Please try again.");
         }
       );
   };
+  
 
   return (
     <div className='flex flex-col justify-center items-center w-full'>

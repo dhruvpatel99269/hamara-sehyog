@@ -105,7 +105,7 @@ const Footer = () => {
           <div className='flex justify-center items-center mb-12 text-gray-500 space-x-2'>              
                 <div className='flex justify-center items-center'><Image src='/settings.svg' alt='settings' width={100} height={100} className='w-[30px] h-[30px]' /></div>
                 <div className='flex justify-center items-center'>
-                  <Link href='/sign-up' onClick={onSettings} className='flex justify-center items-center'>
+                  <Link href='/sign-in' onClick={onSettings} className='flex justify-center items-center'>
                     Settings
                   </Link>
                 </div>              

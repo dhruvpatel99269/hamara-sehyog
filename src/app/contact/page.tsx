@@ -1,10 +1,37 @@
 "use client"
 import React from 'react'
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { styles } from '../styles';
+import axios from 'axios';
 
 const Page = () => {
+  const [data, setData] = React.useState({
+    home:"",
+    about: "",
+    stories: "",
+    contact: "",
+    work: "",
+  });
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("/api/data"); // Update this to your correct API endpoint
+      setData(response.data);
+      console.log("Data fetched successfully", response.data);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.error("Content Fetching Failed", error.message);
+      } else {
+        console.error("Content Fetching Failed", error);
+      }
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   const formRef = useRef<HTMLFormElement>(null);
   const [form, setForm] = useState({
     name: "",
@@ -70,7 +97,7 @@ const Page = () => {
             Contact
           </h1>
           <p className="mt-4 font-light text-base md:text-lg max-w-2xl text-left">
-            Learn more about our non-profit organization and our mission to make a positive impact on the world through our charitable initiatives
+            {data.contact}
           </p>
         </div>
       </div>

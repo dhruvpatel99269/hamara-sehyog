@@ -1,7 +1,37 @@
+"use client"
 import Image from 'next/image';
 import React from 'react'
+import axios from 'axios';
+import { useEffect } from 'react';
 
 const Hero = () => {
+
+  const [data, setData] = React.useState({
+    home:"",
+    about: "",
+    stories: "",
+    contact: "",
+    work: "",
+  });
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("/api/data"); // Update this to your correct API endpoint
+      setData(response.data);
+      console.log("Data fetched successfully", response.data);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.error("Content Fetching Failed", error.message);
+      } else {
+        console.error("Content Fetching Failed", error);
+      }
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div className='flex flex-col justify-center items-center w-full'>
       <div className='w-full flex flex-col justify-center items-center bg-white'>
@@ -13,7 +43,7 @@ const Hero = () => {
               Empowering Change, One Step at a Time
             </div>
             <div className="mt-4 font-light md:text-xl max-w-2xl flex text-center justify-center items-center">
-              Learn more about our non-profit organization and our mission to make a positive impact on the world through our charitable initiatives
+              {data.home}
             </div>
             <div className='flex justify-center items-center w-fit py-[14px] px-7 rounded-xl bg-[#66B40B] cursor-pointer text-white text-lg font-semibold'>
               Donate Now

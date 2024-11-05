@@ -21,7 +21,7 @@ export const POST = async (req: Request) => {
     try {
         const { type, value } = await req.json(); // Extract type and value from request body
 
-        if (!["about", "stories", "contact", "work"].includes(type)) {
+        if (!["home", "about", "stories", "contact", "work"].includes(type)) {
             return NextResponse.json({ message: "Invalid type provided" }, { status: 400 });
         }
 

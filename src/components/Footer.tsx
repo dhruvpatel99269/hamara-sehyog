@@ -91,10 +91,6 @@ const Footer = () => {
               <div className='w-full flex justify-start items-center'>
                 Brand partnership
               </div>
-
-              <div className='w-full flex justify-start items-center'>
-                Legacy giving
-              </div>
             </div>
           </div>
         </div>

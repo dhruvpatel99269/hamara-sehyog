@@ -1,6 +1,37 @@
+"use client"
 import React from 'react';
 import Image from 'next/image';
-const WorkPage: React.FC = () => {
+import axios from 'axios';
+import { useEffect } from 'react';
+
+const Page = () => {
+
+  const [data, setData] = React.useState({
+    home:"",
+    about: "",
+    stories: "",
+    contact: "",
+    work: "",
+  });
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("/api/data"); // Update this to your correct API endpoint
+      setData(response.data);
+      console.log("Data fetched successfully", response.data);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.error("Content Fetching Failed", error.message);
+      } else {
+        console.error("Content Fetching Failed", error);
+      }
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div className="bg-[#F7F9F1] min-h-screen pt-0">
       {/* Hero Section with Background Image */}
@@ -12,7 +43,7 @@ const WorkPage: React.FC = () => {
             Our Work
           </h1>
           <p className="mt-4 font-light text-base md:text-lg max-w-2xl text-left">
-            Discover how our non-profit organisation works towards building a better world through our impactful programs and initiatives.
+            {data.work}
           </p>
         </div>
       </div>
@@ -134,4 +165,4 @@ const WorkPage: React.FC = () => {
   );
 };
 
-export default WorkPage;
+export default Page;

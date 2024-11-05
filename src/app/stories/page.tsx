@@ -1,6 +1,37 @@
+"use client"
 import Image from 'next/image';
+import axios from 'axios';
+import { useEffect } from 'react';
+import React from 'react';
 
 const Page = () => {
+
+  const [data, setData] = React.useState({
+    home:"",
+    about: "",
+    stories: "",
+    contact: "",
+    work: "",
+  });
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("/api/data"); // Update this to your correct API endpoint
+      setData(response.data);
+      console.log("Data fetched successfully", response.data);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.error("Content Fetching Failed", error.message);
+      } else {
+        console.error("Content Fetching Failed", error);
+      }
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div className="flex flex-col justify-center relative items-center w-full text-[#2C3A04]">
       <div
@@ -14,7 +45,7 @@ const Page = () => {
             Stories
           </h1>
           <p className="mt-4 font-light text-base md:text-lg lg:text-lg xl:text-lg max-w-2xl text-left">
-            Learn more about our non-profit organization and our mission to make a positive impact on the world through our charitable initiatives.
+            {data.stories}
           </p>
         </div>
       </div>

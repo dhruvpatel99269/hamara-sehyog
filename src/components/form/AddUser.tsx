@@ -21,14 +21,15 @@ export default function SignupPage() {
             setLoading(true);
             const response = await axios.post("/api/sign-up", user);
             console.log("signup success", response.data);
-            toast.success("User added successfully");        
+            toast.success("User added successfully");
+            router.push("/sign-in");
         } catch (error) {
             if (axios.isAxiosError(error)) {
                 console.log("Signup failed", error.message);
                 toast.error(error.message);
             } else {
                 console.log("Signup failed", error);
-                toast.error("User addition failed");
+                toast.error("Signup failed");
             }
         } finally {
             setLoading(false);

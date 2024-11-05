@@ -1,5 +1,4 @@
 "use client"
-import Link from "next/link";
 import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
@@ -84,9 +83,6 @@ export default function LoginPage() {
                     <button onClick={onLogin} className="bg-red-200 p-2 border-gray-300 rounded-lg mb-4 shadow-inner hover:shadow-xl hover:p-3 hover:text-lg hover:font-semibold">
                         {buttonDisabled ? "No Login" : "Login"}
                     </button>
-                </div>
-                <div className="flex text-blue-600 hover:text-violet-600 text-sm sm:text-md md:text-lg lg:text-lg xl:text-lg font-mono">
-                    <Link href="/signup">Visit signup page</Link>
                 </div>
             </div>
         </div>

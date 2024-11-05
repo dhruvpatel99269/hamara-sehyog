@@ -1,17 +1,21 @@
 "use client";
 import React, { useState } from 'react';
+import AddUser from "@/components/form/AddUser"
 import HomeForm from "@/components/form/HomeForm"
 import AboutForm from "@/components/form/AboutForm"
 import WorkForm from "@/components/form/WorkForm"
 import StoriesForm from "@/components/form/StoriesForm"
 import ContactForm from "@/components/form/ContactForm"
 import BlackForm from '@/components/form/BlackForm';
+import Link from 'next/link';
 
 const Page = () => {
-    const [activeForm, setActiveForm] = useState<"home" | "about" | "work" | "stories" | "contact" | null>(null);
+    const [activeForm, setActiveForm] = useState<"adduser" | "home" | "about" | "work" | "stories" | "contact" | null>(null);
 
     const renderActiveForm = () => {
         switch (activeForm) {
+            case 'adduser':
+                return <AddUser />;
             case 'home':
                 return <HomeForm />;
             case 'about':
@@ -35,7 +39,9 @@ const Page = () => {
                         Manage Users
                     </div>
                     <div className='w-full flex justify-center lg:justify-start xl:justify-start items-center cursor-pointer text-[15px] md:text-[17px] lg:text-[20px] xl:text-[20px] px-4'>
-                        Add User
+                        <div onClick={() => setActiveForm('adduser')}>
+                            Add User
+                        </div>
                     </div>
                     <div className='w-full flex justify-center lg:justify-start xl:justify-start items-center cursor-pointer text-[15px] md:text-[17px] lg:text-[20px] xl:text-[20px] px-4'>
                         Remove User
@@ -64,7 +70,7 @@ const Page = () => {
                 </div>
             </div>
 
-            <div className='w-full md:w-4/5 lg:w-4/5 xl:w-4/5 flex justify-center items-center'>
+            <div className='w-full md:w-4/5 lg:w-4/5 xl:w-4/5 flex justify-center items-center bg-gradient-to-br from-yellow-300 to-cyan-300'>
                 {renderActiveForm()} {/* Render the active form component */}
             </div>
         </div>

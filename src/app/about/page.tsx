@@ -1,250 +1,133 @@
-import React from 'react'
+"use client"
+import React from 'react';
 import Image from 'next/image';
+import { useEffect } from 'react';
+import axios from 'axios';
 
-const page = () => {
+const Page = () => {
+  const [data, setData] = React.useState({
+    about: "",
+    stories: "",
+    contact: "",
+    work: "",
+  });
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("/api/data"); // Update this to your correct API endpoint
+      setData(response.data);
+      console.log("Data fetched successfully", response.data);
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.error("Content Fetching Failed", error.message);
+      } else {
+        console.error("Content Fetching Failed", error);
+      }
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
-    <div className='flex flex-col justify-center items-center w-full'>
-      <div className="relative bg-cover flex justify-center items-center bg-center w-full h-[60vh] mt-0" style={{ backgroundImage: 'url(/work-main.jpg)' }}>
-        {/* Overlay for dull effect */}
+    <div className="flex flex-col items-center w-full">
+      {/* Header Section */}
+      <div className="relative flex items-center justify-center bg-cover bg-center w-full h-[60vh] mt-0" style={{ backgroundImage: 'url(/work-main.jpg)' }}>
         <div className="absolute inset-0 bg-black opacity-60"></div>
-        <div className="relative container mx-auto h-full flex flex-col justify-center items-start text-white pl-2 lg:pl-8 xl:pl-8">
-          <h1 className="text-5xl lg:text-7xl xl:text-7xl md:text-7xl font-semibold">
-            About Us
-          </h1>
-          <p className="mt-4 font-light text-base md:text-lg lg:text-lg xl:text-lg max-w-2xl text-left">
-            Learn more about our non-profit organization and our mission to make a positive impact on the world through our charitable initiatives
+        <div className="relative container mx-auto flex flex-col items-start justify-center h-full text-white pl-2 lg:pl-8">
+          <h1 className="text-5xl md:text-7xl font-semibold">About Us</h1>
+          <p className="mt-4 text-base font-light md:text-lg max-w-2xl">
+            {data ? data.about : "Loading..."}
           </p>
         </div>
       </div>
 
-      <div className='flex flex-col justify-center relative items-center w-full  bg-[#F7F9F1] p-2'>
-        <div className='flex flex-col lg:flex-row xl:flex-row w-full lg:w-4/5 xl:w-4/5 justify-center items-center text-[#2C3A04]  gap-20'>
-          <div className='flex flex-col w-full lg:w-1/2 xl:w-1/2 justify-center relative top-[-80px] items-center py-16 px-4 lg:py-0 xl:py-0 lg:px-0 xl:px-0'>
-            <div className='flex w-full text-[30px] lg:text-[40px] xl:text-[40px] leading-tight font-semibold my-10 justify-center items-center'>
-              Making the world a better place
-            </div>
-
-            <div className='flex w-full text-base tracking-wide'>
-              Join Non-profit Organisation in our mission of making the world a better place. We strive to create positive change through various charitable initiatives and community outreach programs.
-            </div>
-
-            <div className='flex flex-col w-full border-l-2  px-6 mt-8'>
-              <div className='flex w-full  text-lg font-semibold mb-3'>
-                Changing Lives
+      {/* Content Section */}
+      <div className="flex flex-col items-center w-full bg-[#F7F9F1] p-4">
+        <div className="flex flex-col lg:flex-row items-center gap-20 w-full lg:w-4/5">
+          <div className="flex flex-col items-center w-full lg:w-1/2 text-[#2C3A04] space-y-6 px-4 py-8 lg:py-0">
+            <h2 className="text-3xl lg:text-4xl font-semibold text-center">Making the world a better place</h2>
+            <p className="text-base text-center">
+              Join our non-profit organization in making positive change through various charitable initiatives and community outreach.
+            </p>
+            <div className="flex flex-col border-l-2 pl-4 space-y-8">
+              <div>
+                <h3 className="text-lg font-semibold">Changing Lives</h3>
+                <p>Improving lives one step at a time with our non-profit organization.</p>
               </div>
-              <div className='flex w-full tracking-wide'>
-                Improving lives one step at a time with our non-profit organization.
-              </div>
-              <div className='flex mt-8 w-full text-lg font-semibold mb-3'>
-                Building Futures
-              </div>
-              <div className='flex w-full tracking-wide'>
-                Creating opportunities and a better future with our non-profit organization.
+              <div>
+                <h3 className="text-lg font-semibold">Building Futures</h3>
+                <p>Creating opportunities and a better future with our non-profit organization.</p>
               </div>
             </div>
           </div>
 
-          <div className='flex flex-col md:flex-row lg:flex-row xl:flex-row w-full md:w-2/3 lg:w-2/3 xl:w-2/3 justify-center items-center  top-[-200px] relative space-x-0 md:space-x-12 lg:space-x-12 xl:space-x-12'> 
-            <div className='flex w-full md:w-1/2 lg:w-1/2 xl:w-1/2 flex-col justify-center items-center mt-0 md:mt-12 lg:mt-12 xl:mt-12 '>
-              <div className='flex mt-20'>
-                <Image src="/about1.jpg" alt='image2' width={300} height={60} className='rounded-2xl' />
+          {/* Images Section */}
+          <div className="flex flex-wrap justify-center gap-8 w-full lg:w-1/2">
+            {['/about1.jpg', '/about2.jpg', '/about3.jpg', '/about4.jpg'].map((src, index) => (
+              <div key={index} className="rounded-2xl shadow-lg">
+                <Image src={src} alt={`image${index + 1}`} width={300} height={200} className="rounded-2xl" priority />
               </div>
-
-              <div className='flex mt-10'>
-                <Image src="/about2.jpg" alt='image2' width={300} height={110} className='rounded-2xl' />
-              </div>
-            </div>
-
-            <div className='flex w-full md:w-1/2 lg:w-1/2 xl:w-1/2 flex-col justify-center items-center mt-10 md:mt-0 lg:mt-0 xl:mt-0'>
-              <div className='flex'>
-                <Image src="/about3.jpg" alt='image2' width={300} height={100} className='rounded-2xl' />
-              </div>
-
-              <div className='flex mt-10'>
-                <Image src="/about4.jpg" alt='image2' width={300} height={120} className='rounded-2xl' />
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
-        <div className='flex flex-col md:flex-row lg:flex-row xl:flex-row justify-center items-center w-full md:w-4/5 lg:w-5/6 xl:w-5/6 border-2 rounded-2xl relative h-fit lg:max-h-[260px] xl:max-h-[260px] pl-0 lg:pl-5 xl:pl-5 bg-white'>
-          <div className='flex flex-col justify-start items-center w-full md:w-1/3 lg:w-1/3 xl:w-1/3 my-5 px-6 border-b-2 md:border-r-2 lg:border-r-2 xl:border-r-2 md:border-b-[0px] lg:border-b-[0px] xl:border-b-[0px]'>
-            <div className='flex py-2 justify-start items-center w-full text-[#D2D8C0] text-3xl font-dm-sans-500 font-bold'>
-              01.
+        {/* Information Cards */}
+        <div className="flex flex-col lg:flex-row items-center w-full md:w-4/5 border-2 rounded-2xl p-5 bg-white space-y-5 lg:space-y-0 lg:space-x-5">
+          {[
+            { title: 'Prove every project', description: 'Our organization delivers transparent results.', buttonText: 'See Proof' },
+            { title: 'Open book', description: 'We maintain an open book approach with all stakeholders.', buttonText: 'View Financials' },
+            { title: 'Local partnerships', description: 'Building strong relationships with the community.', buttonText: 'Learn More' },
+          ].map((item, index) => (
+            <div key={index} className="flex flex-col items-start w-full lg:w-1/3 p-4 border-b lg:border-b-0 lg:border-r last:border-none">
+              <h3 className="text-3xl text-[#D2D8C0] font-bold">{`0${index + 1}.`}</h3>
+              <h4 className="text-xl font-semibold">{item.title}</h4>
+              <p>{item.description}</p>
+              <div className="flex items-center space-x-2 cursor-pointer font-bold text-lg text-green-700">
+                <span>{item.buttonText}</span>
+                <Image src="/right-arrow.svg" alt="Right arrow icon" width={15} height={15} />
+              </div>
             </div>
-
-            <div className='flex py-2 justify-start items-center w-full text-[#2C3A04] text-xl font-semibold'>
-              Prove every project
-            </div>
-
-            <div className='flex py-2 justify-start items-center w-full'>
-              Our Non-profit Organisation delivers transparent and accountable results for every project we undertake.
-            </div>
-
-            <div className='flex py-2 justify-start gap-3 cursor-pointer items-center w-full font-bold text-lg'>
-              See Proof
-              <Image
-                src="/right-arrow.svg" // Path to the SVG in the public folder
-                alt="Right arrow Icon"
-                width={15} // Set the width
-                height={15} // Set the height
-              />
-            </div>
-          </div>
-
-          <div className='flex flex-col justify-start items-center w-full md:w-1/3 lg:w-1/3 xl:w-1/3 my-5 px-6 border-b-2 md:border-r-2 lg:border-r-2 xl:border-r-2 md:border-b-[0px] lg:border-b-[0px] xl:border-b-[0px]'>
-            <div className='flex py-2 justify-start items-center w-full text-[#D2D8C0] text-3xl font-dm-sans-500 font-bold'>
-              02.
-            </div>
-
-            <div className='flex py-2 justify-start items-center w-full text-[#2C3A04] text-xl font-semibold'>
-              Open book
-            </div>
-
-            <div className='flex py-2 justify-start items-center w-full'>
-              We firmly believe in transparency and strive to maintain an open book approach with all stakeholders.
-            </div>
-
-            <div className='flex py-2 justify-start gap-3 cursor-pointer items-center w-full font-bold text-lg'>
-              View Financials
-              <Image
-                src="/right-arrow.svg" // Path to the SVG in the public folder
-                alt="Right arrow Icon"
-                width={15} // Set the width
-                height={15} // Set the height
-              />
-            </div>
-          </div>
-
-          <div className='flex flex-col justify-start items-center w-full md:w-1/3 lg:w-1/3 xl:w-1/3 py-5 px-6'>
-            <div className='flex py-2 justify-start items-center w-full text-[#D2D8C0] text-3xl font-dm-sans-500 font-bold'>
-              03.
-            </div>
-
-            <div className='flex py-2 justify-start items-center w-full text-[#2C3A04] text-xl font-semibold'>
-              Local partnerships
-            </div>
-
-            <div className='flex py-2 justify-start items-center w-full'>
-              Building strong relationships with the community is vital and we work closely with local partners.
-            </div>
-
-            <div className='flex py-2 justify-start gap-3 cursor-pointer items-center w-full font-bold text-lg'>
-              Learn More
-              <Image
-                src="/right-arrow.svg" // Path to the SVG in the public folder
-                alt="Right arrow Icon"
-                width={15} // Set the width
-                height={15} // Set the height
-              />
-            </div>
-          </div>
+          ))}
         </div>
 
-
-        <div className='flex flex-col w-full md:w-4/5 lg:w-4/5 xl:w-4/5 h-1/2 top-[150px] relative p-2'>
-          <Image src="/work2.jpg" alt='work-image' width={1000} height={1000} className='w-full h-full lg:h-[80vh] xl:h-[80vh] rounded-3xl' />
+        {/* Large Image */}
+        <div className="relative w-full md:w-4/5 h-[80vh] mt-10">
+          <Image src="/work2.jpg" alt="work-image" layout="fill" objectFit="cover" className="rounded-3xl" priority />
         </div>
-      </div>
 
-      <div className='flex flex-col justify-center items-center w-full md:w-4/5 lg:w-4/5 xl:w-4/5 mt-32 text-[#2C3A04] p-2'>
-        <div className='flex flex-col justify-center items-center w-full md:w-2/3 lg:w-2/3 xl:w-2/3 mt-32'>
-          <div className='flex justify-center items-center uppercase tracking-widest'>
-            Make a Difference Today
-          </div>
-
-          <div className='flex justify-center items-center text-center text-[22px] md:text-[33px] lg:text-[44px] xl:text-[44px] leading-tight font-semibold my-4'>
-            Your contribution matters. Support our cause by making a donation.
-          </div>
-
-          <div className='flex justify-center items-center text-center w-full md:w-4/5 lg:w-4/5 xl:w-4/5 mb-4'>
-            Every dollar counts and helps us bring hope, joy, and essential resources to those in need. Together, we can create a better tomorrow.
-          </div>
-
-          <div className='flex cursor-pointer justify-center items-center w-fit text-xl font-semibold my-2 px-4 py-2 lg:my-4 lg:px-6 lg:py-4 xl:my-4 xl:px-6 xl:py-4 text-white bg-[#66B40B] hover:bg-green-600/95 transition duration-800 rounded-xl'>
+        {/* Call to Action */}
+        <div className="flex flex-col items-center w-full md:w-4/5 text-[#2C3A04] mt-16 text-center space-y-4">
+          <h2 className="text-2xl uppercase tracking-widest">Make a Difference Today</h2>
+          <h3 className="text-2xl md:text-4xl font-semibold">Your contribution matters. Support our cause by making a donation.</h3>
+          <p>Every dollar counts and helps us bring hope, joy, and resources to those in need. Together, we can create a better tomorrow.</p>
+          <button className="px-6 py-3 text-xl font-semibold text-white bg-[#66B40B] rounded-xl hover:bg-green-600 transition duration-500">
             Donate Today
-          </div>
+          </button>
         </div>
-      </div>
 
-      <div className='flex flex-col justify-center items-center  bg-[#F7F9F1] w-full mt-24'>
-        <div className='flex flex-col lg:flex-row xl:flex-row justify-center items-center w-full md:w-4/5 lg:w-4/5 xl:w-4/5 p-6 mt-24 mb-24'>
-          <div className='flex justify-center items-center w-full lg:w-1/2 xl:w-1/2'>
-            <Image src="/about5.jpg" alt='' width={300} height={300} className='rounded-3xl w-4/5 h-4/5 shadow-2xl' />
+        {/* Vision Section */}
+        <div className="flex flex-col lg:flex-row items-center w-full md:w-4/5 bg-[#F7F9F1] p-10 mt-20 mb-20">
+          <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
+            <Image src="/about5.jpg" alt="Our Vision & Mission" width={300} height={300} className="rounded-3xl shadow-xl" />
           </div>
-
-          <div className='flex flex-col justify-center items-center w-full lg:w-1/2 xl:w-1/2 text-[#2C3A04] my-4 lg:my-0 xl:my-0'>
-            <div className='flex w-full text-5xl text-left tracking-wide font-semibold my-3'>
-              Our Vision & Mission
-            </div>
-
-            <div className='flex justify-center items-center w-full my-5'>
-              Non-profit Organisation&apos;s vision is to create a world where all people have equal access to education and healthcare. Our mission is to provide the necessary resources and support to underprivileged communities to improve their quality of life.
-            </div>
-
-            <div className='flex flex-col justify-center items-center w-full gap-3'>
-              <div className='flex justify-start items-center w-full'>
-                <div className='flex justify-start items-center w-fit h-fit'>
-                  <Image
-                    src="/tick-circle.png"
-                    alt='tick'
-                    width={30}
-                    height={30}
-                    className='filter invert' // This will make the colors inverted, turning black to white and vice versa
-                  />
+          <div className="flex flex-col items-start text-[#2C3A04] space-y-4 lg:w-1/2">
+            <h2 className="text-4xl font-semibold">Our Vision & Mission</h2>
+            <p>Our vision is to create a world with equal access to education and healthcare. Our mission is to support underprivileged communities to improve their quality of life.</p>
+            <div className="space-y-3">
+              {['Changing lives one step at a time', 'Building strong local partnerships'].map((text, idx) => (
+                <div key={idx} className="flex items-start space-x-2">
+                  <Image src="/tick-circle.png" alt="tick" width={30} height={30} className="invert" />
+                  <span>{text}</span>
                 </div>
-                <div className='flex justify-start items-center'>
-                  Changing lives improving lives one step at a time with our non-profit organization.
-                </div>
-              </div>
-              <div className='flex justify-start items-center w-full'>
-                <div className='flex justify-start items-center w-fit h-fit'>
-                  <Image
-                    src="/tick-circle.png"
-                    alt='tick'
-                    width={30}
-                    height={30}
-                    className='filter invert' // This will make the colors inverted, turning black to white and vice versa
-                  />
-                </div>
-                <div className='flex justify-start items-center'>
-                  Building futures creating opportunities and a better future with our non-profit organization.
-                </div>
-              </div>
-              <div className='flex justify-start items-center w-full'>
-                <div className='flex justify-start items-center w-fit h-fit'>
-                  <Image
-                    src="/tick-circle.png"
-                    alt='tick'
-                    width={30}
-                    height={30}
-                    className='filter invert' // This will make the colors inverted, turning black to white and vice versa
-                  />
-                </div>
-                <div className='flex justify-start items-center'>
-                  Movement for change creating impact, promoting change through non-profit work.
-                </div>
-              </div>
-              <div className='flex justify-start items-center w-full'>
-                <div className='flex justify-start items-center w-fit h-fit'>
-                  <Image
-                    src="/tick-circle.png"
-                    alt='tick'
-                    width={30}
-                    height={30}
-                    className='filter invert' // This will make the colors inverted, turning black to white and vice versa
-                  />
-                </div>
-                <div className='flex justify-start items-center'>
-                  Lasting impact our charity strives for long-term impact in communities we serve.
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default page;
+export default Page;

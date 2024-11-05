@@ -1,7 +1,16 @@
+"use client"
+import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react'
+import { useRouter } from "next/navigation";
 
 const Footer = () => {
+  const router = useRouter();
+
+  const onSettings = () => {
+    router.push('/sign-up');
+  }
+
   return (
     <>
       <div className='flex justify-center items-center w-full border-b-2 mb-12 border-t border-t-black'>
@@ -92,10 +101,19 @@ const Footer = () => {
       </div>
 
       <div className='flex justify-center items-center w-full'>
-        <div className='w-5/6 flex justify-center items-center'>
+        <div className='w-5/6 flex justify-center items-center space-x-12'>
           <div className='flex justify-start items-center mb-12'>
             © 2024 Hamara Sehyog Organization. All rights reserved.
-          </div>                    
+          </div>
+
+          <div className='flex justify-center items-center mb-12 text-gray-500 space-x-2'>
+            <div className='flex justify-center items-center'><Image src='/settings.svg' alt='settings' width={100} height={100} className='w-[30px] h-[30px]' /></div>
+            <div className='flex justify-center items-center'>
+              <Link href='/sign-up' onClick={onSettings} className='flex justify-center items-center'>
+                Settings
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </>

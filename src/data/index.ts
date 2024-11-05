@@ -5,3 +5,5 @@ export const navItems = [
     { name: "Stories", link: "/stories" },
     { name: "Contact Us", link: "/contact" },
   ];
+
+export const about = "hey this is the about content";

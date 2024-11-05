@@ -6,10 +6,9 @@ import { useRouter } from "next/navigation";
 
 const Footer = () => {
   const router = useRouter();
-  const isSettingsPage = router.pathname === '/settings';
 
   const onSettings = () => {
-    router.push('/sign-up');
+    router.push('/sign-in');
   }
 
   return (
@@ -103,16 +102,13 @@ const Footer = () => {
             © 2024 Hamara Sehyog Organization. All rights reserved.
           </div>
 
-          <div className='flex justify-center items-center mb-12 text-gray-500 space-x-2'>
-            {!isSettingsPage &&
-              <>
+          <div className='flex justify-center items-center mb-12 text-gray-500 space-x-2'>              
                 <div className='flex justify-center items-center'><Image src='/settings.svg' alt='settings' width={100} height={100} className='w-[30px] h-[30px]' /></div>
                 <div className='flex justify-center items-center'>
                   <Link href='/sign-up' onClick={onSettings} className='flex justify-center items-center'>
                     Settings
                   </Link>
-                </div>
-              </>}
+                </div>              
           </div>
         </div>
       </div>

@@ -7,7 +7,6 @@ import WorkForm from "@/components/form/WorkForm"
 import StoriesForm from "@/components/form/StoriesForm"
 import ContactForm from "@/components/form/ContactForm"
 import BlackForm from '@/components/form/BlackForm';
-import Link from 'next/link';
 
 const Page = () => {
     const [activeForm, setActiveForm] = useState<"adduser" | "home" | "about" | "work" | "stories" | "contact" | null>(null);

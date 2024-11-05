@@ -11,15 +11,17 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { FaBars, FaTimes } from "react-icons/fa"; // Import icons for hamburger menu
 
+type NavItem = {
+    name: string;
+    link: string;
+    icon?: JSX.Element;
+};
+
 export const FloatingNav = ({
     navItems,
     className,
 }: {
-    navItems: {
-        name: string;
-        link: string;
-        icon?: JSX.Element;
-    }[];
+    navItems: NavItem[];
     className?: string;
 }) => {
     const { scrollYProgress } = useScroll();
@@ -29,19 +31,20 @@ export const FloatingNav = ({
 
     useMotionValueEvent(scrollYProgress, "change", (current) => {
         if (typeof current === "number") {
-            const direction = current - scrollYProgress.getPrevious();
-
-            if (scrollYProgress.get() < 0.05) {
-                setVisible(true);
-            } else {
-                if (direction < 0) {
+            const previous = scrollYProgress.getPrevious();
+            
+            if (previous !== undefined) {
+                const direction = current - previous;
+    
+                if (scrollYProgress.get() < 0.05) {
                     setVisible(true);
                 } else {
-                    setVisible(false);
+                    setVisible(direction < 0);
                 }
             }
         }
     });
+    
 
     return (
         <AnimatePresence mode="wait">
@@ -77,7 +80,7 @@ export const FloatingNav = ({
                 </div>
                 {/* Links for larger screens */}
                 <div className="hidden lg:flex justify-end items-center space-x-4">
-                    {navItems.map((navItem: any, idx: number) => (
+                    {navItems.map((navItem: NavItem, idx: number) => (
                         <button
                             key={`link=${idx}`}
                             onClick={() => router.push(navItem.link)} // Route to the link
@@ -100,7 +103,7 @@ export const FloatingNav = ({
                             transition={{ duration: 0.3 }}
                             className="absolute top-[100%] inset-x-0 bg-white p-5 shadow-lg lg:hidden flex flex-col space-y-4"
                         >
-                            {navItems.map((navItem: any, idx: number) => (
+                            {navItems.map((navItem: NavItem, idx: number) => (
                                 <button
                                     key={`mobile-link=${idx}`}
                                     onClick={() => {

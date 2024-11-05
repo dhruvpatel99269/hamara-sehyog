@@ -1,22 +1,27 @@
-"use client"
-import React from 'react'
-import { useRef, useState } from "react";
+"use client";
+import React, { useRef, useState, ChangeEvent, FormEvent } from "react";
 import emailjs from "@emailjs/browser";
 import { styles } from '../styles';
 
-const Page = () => {
-  const formRef = useRef();
-  const [form, setForm] = useState({
+// Define the form data type
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
+const Page: React.FC = () => {
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const [form, setForm] = useState<FormData>({
     name: "",
     email: "",
     message: "",
   });
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const handleChange = (e) => {
-    const { target } = e;
-    const { name, value } = target;
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
 
     setForm({
       ...form,
@@ -24,9 +29,16 @@ const Page = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
+
+    // Simple validation
+    if (!form.name || !form.email || !form.message) {
+      alert("Please fill in all fields.");
+      setLoading(false);
+      return;
+    }
 
     emailjs
       .send(
@@ -54,104 +66,71 @@ const Page = () => {
         (error) => {
           setLoading(false);
           console.error(error);
-
           alert("Ahh, something went wrong. Please try again.");
         }
       );
   };
 
   return (
-    <div className='flex flex-col justify-center items-center w-full'>
+    <div className='flex flex-col relative justify-center items-center w-full text-[#2C3A04] '>
       <div className="relative bg-cover flex justify-center items-center bg-center w-full h-[60vh] mt-0" style={{ backgroundImage: 'url(/work-main.jpg)' }}>
         {/* Overlay for dull effect */}
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative container mx-auto h-full flex flex-col justify-center items-start text-white">
-          <h1 className="text-9xl md:text-7xl font-semibold">
-            Contact
-          </h1>
+          <h1 className="text-9xl md:text-7xl font-semibold">Contact</h1>
           <p className="mt-4 font-light text-base md:text-lg max-w-2xl text-left">
-            Learn more about our non-profit organization and our mission to make a positive impact on the world through our charitable initiatives
+            Learn more about our non-profit organization and our mission to make a positive impact on the world through our charitable initiatives.
           </p>
         </div>
       </div>
 
-      <div className='flex justify-center items-center w-full bg-orange-50'>
+      <div className='flex justify-center items-center w-full'>
         <div className='flex flex-col justify-center items-center w-4/5'>
-          <div className='flex justify-center items-center w-full bg-white rounded-3xl border-2 top-[-50px] relative'>
-            <div className='flex flex-col justify-center items-center w-1/3 border-r-2 px-6 py-8'>
-              <div className='flex justify-start items-center w-full'>
-                Phone:
-              </div>
-
-              <div className='flex justify-start items-center w-full'>
-                Tel: (555) 123-2222
-              </div>
-
-              <div className='flex justify-start items-center w-full'>
-                Fax: (555) 123-2225
-              </div>
+          <div className='flex justify-center items-center w-full bg-white h-[180px] rounded-3xl border-2 top-[-50px] relative'>
+            <div className='flex flex-col justify-center items-center w-1/3  px-9 py-8 tracking-wide '>
+              <div className='flex justify-start items-center w-full text-base font-thin mb-2'>Phone:</div>
+              <div className='flex justify-start items-center w-full text-lg font-semibold'>Tel: (555) 123-2222</div>
+              <div className='flex justify-start items-center w-full text-lg font-semibold'>Fax: (555) 123-2225</div>
             </div>
 
-            <div className='flex flex-col justify-center items-center w-1/3 border-r-2 px-6 py-8'>
-              <div className='flex justify-start items-center w-full'>
-                DONATION CENTER
-              </div>
-
-              <div className='flex justify-start items-center w-full'>
-                Om Paradise, Sus Gaon, Pune
-              </div>
+            <div className='flex flex-col justify-center items-center w-1/3  tracking-wide px-6 py-8 '>
+              <div className='flex justify-start items-start w-full text-base font-thin mb-2'>DONATION CENTER</div>
+              <div className='flex justify-start items-center w-full text-lg font-semibold'>Om Paradise, Sus Gaon, Pune</div>
             </div>
 
-            <div className='flex flex-col justify-center items-center w-1/3 px-6 py-8'>
-              <div className='flex justify-start items-center w-full'>
-                Need assistance?
-              </div>
-
-              <div className='flex justify-start items-center w-full'>
-                Check out our Help Center.
-              </div>
+            <div className='flex flex-col justify-center items-center w-1/3 tracking-wide px-6 py-8 '>
+              <div className='flex justify-start items-center w-full text-base font-thin mb-2'>Need assistance?</div>
+              <div className='flex justify-start items-center w-full text-lg font-semibold'>Check out our Help Center.</div>
             </div>
           </div>
 
-          <div className='flex justify-center items-center w-full'>
-            <div className='flex flex-col justify-center items-center w-1/2 my-24 px-12'>
-              <div className='flex justify-start items-center w-full'>
-                GET IN TOUCH
-              </div>
-
-              <div className='flex justify-start items-center w-full'>
-                How can I help you ?
-              </div>
-
-              <div className='flex justify-start items-center w-full'>
+          <div className='flex justify-center items-center w-full gap-10 mb-16'>
+            <div className='flex flex-col justify-center items-center w-1/2 my-24  relative top-[-50px]'>
+              <div className='flex justify-start items-center w-full py-8'>GET IN TOUCH</div>
+              <div className='flex justify-start items-center w-full text-5xl font-bold'>How can I help you?</div>
+              <div className='flex justify-start items-center w-full py-5'>
                 Our Non-profit Organisation is dedicated to helping those in need. Contact us to see how we can help you or someone you know.
               </div>
 
-              <div className='flex flex-col justify-center items-center border-b-2 py-4 w-full'>
-                <div className='flex justify-start items-center w-full'>
-                  Headquarter
-                </div>
+              <div className='flex flex-col justify-center items-center border-b-[1px] border-gray-400 py-4 w-full'>
+                <div className='flex justify-start items-center w-full mb-2 text-xl font-bold tracking-wide'>Headquarter</div>
                 <div className='flex flex-col justify-start items-center w-full'>
                   <span className='flex justify-start items-center w-full'>2715 Demo St. San Jose, South Dakota 83475</span>
-                  <span className='flex justify-start items-start w-full'>(205) 555-0100</span>
+                  <span className='flex justify-start items-start w-full mb-3'>(205) 555-0100</span>
                 </div>
               </div>
 
-              <div className='flex flex-col justify-center items-center border-b-2 py-4 w-full'>
-                <div className='flex justify-start items-center w-full'>
-                  Illinois Office
-                </div>
+              <div className='flex flex-col justify-center items-center  border-b-[1px] border-gray-400 py-4 w-full'>
+                <div className='flex justify-start items-center w-full mb-2 text-xl font-bold tracking-wide'>Illinois Office</div>
                 <div className='flex flex-col justify-start items-center w-full'>
                   <span className='flex justify-start items-center w-full'>2972 Example Rd. Santa Ana, Illinois 85486</span>
-                  <span className='flex justify-start items-start w-full'>(603) 555-0123</span>
+                  <span className='flex justify-start items-start w-full mb-3'>(603) 555-0123</span>
                 </div>
               </div>
             </div>
 
-            <div className='flex justify-center items-center w-1/2'>
-              <div className='flex-col bg-black-100 py-8 px-12 rounded-2xl w-full sm:w-full md:w-3/4 lg:w-1/2 xl:w-1/2'>
-                <p className={styles.sectionSubText}>Get in touch</p>
-                <h3 className={styles.sectionHeadText}>Contact.</h3>
+            <div className='flex justify-start items-start w-1/2'>
+              <div className='flex-col bg-black-100 py-8 px-12 rounded-2xl w-full sm:w-full md:w-full lg:w-full xl:w-full'>
 
                 <form
                   ref={formRef}
@@ -159,53 +138,61 @@ const Page = () => {
                   className='mt-12 flex flex-col gap-8'
                 >
                   <label className='flex flex-col'>
-                    <span className='text-white font-medium mb-4'>Your Name</span>
+                    <span className='font-medium mb-4'>Your Name</span>
                     <input
                       type='text'
                       name='name'
                       value={form.name}
                       onChange={handleChange}
                       placeholder="What's your good name?"
-                      className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+                      className='bg-tertiary py-4 px-6 placeholder:text-secondary rounded-lg outline-none border border-gray-400 font-medium'
+                      required
                     />
                   </label>
                   <label className='flex flex-col'>
-                    <span className='text-white font-medium mb-4'>Your email</span>
+                    <span className='font-medium mb-4'>Your email</span>
                     <input
                       type='email'
                       name='email'
                       value={form.email}
                       onChange={handleChange}
                       placeholder="What's your web address?"
-                      className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+                      className='bg-tertiary py-4 px-6 placeholder:text-secondary rounded-lg outline-none border border-gray-400 font-medium'
+                      required
                     />
                   </label>
                   <label className='flex flex-col'>
-                    <span className='text-white font-medium mb-4'>Your Message</span>
+                    <span className='font-medium mb-4'>Your Message</span>
                     <textarea
                       rows={7}
                       name='message'
                       value={form.message}
                       onChange={handleChange}
-                      placeholder='What you want to say?'
-                      className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+                      placeholder='What do you want to say?'
+                      className='bg-tertiary  px-6 placeholder:text-secondary rounded-lg outline-none border border-gray-400 font-medium'
+                      required
                     />
                   </label>
 
-                  <button
-                    type='submit'
-                    className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
-                  >
-                    {loading ? "Sending..." : "Send"}
-                  </button>
+                  <div className='flex justify-center items-center'>
+                    <button
+                      type='submit'
+                      className='bg-[#66B40B] text-white py-3 px-8 rounded-xl outline-none w-1/3 font-bold shadow-md shadow-primary'
+                      disabled={loading} // Disable button while loading
+                    >
+                      {loading ? "Sending..." : "Send"}
+                    </button>
+                  </div>
+
                 </form>
+
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Page;

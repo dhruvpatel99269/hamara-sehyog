@@ -45,13 +45,13 @@ export default function SignupPage() {
     }, [user]);
 
     return (
-        <div className="flex justify-center items-center flex-col m-auto h-screen w-screen bg-gradient-to-br from-yellow-300 to-cyan-300">
+        <div className="flex justify-center items-center flex-col m-auto h-screen w-full bg-gradient-to-br from-yellow-300 to-cyan-300">
             <div className="flex flex-col items-center justify-center text-black bg-gradient-to-bl from-red-400 to-orange-300 w-fit sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 h-fit py-6 md:py-8 lg:py-12 px-4 rounded-xl shadow-2xl">
-                <div className="flex text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold justify-center items-center pt-0 pb-4">
+                <div className="flex text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold justify-center items-center pt-0 pb-4 px-2 md:px-4 lg:px-0 xl:px-0">
                     <h1>{loading ? "Loading" : "Signup"}</h1>
                 </div>
                 <hr />
-                <div className="flex flex-col pt-4 pb-3">
+                <div className="flex flex-col pt-4 pb-3 px-2 md:px-4 lg:px-0 xl:px-0">
                     <div className="flex w-full text-lg md:text-xl lg:text-2xl font-semibold font-sans">
                         <label htmlFor="username">Username</label>
                     </div>
@@ -66,7 +66,7 @@ export default function SignupPage() {
                         />
                     </div>
                 </div>
-                <div className="flex flex-col py-3">
+                <div className="flex flex-col py-3 px-2 md:px-4 lg:px-0 xl:px-0">
                     <div className="flex w-full text-lg md:text-xl lg:text-2xl font-semibold font-sans">
                         <label htmlFor="email">Email</label>
                     </div>

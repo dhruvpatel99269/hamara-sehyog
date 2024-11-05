@@ -12,13 +12,11 @@ const Page = () => {
         work: "",
     });
 
-    // Fetch initial data from the API
     const fetchData = async () => {
         try {
-            const response = await axios.get("/api/data"); // Update this to your correct API endpoint
+            const response = await axios.get("/api/data"); 
             setData(response.data);
-            console.log("Data fetched successfully", response.data);
-            toast.success("fetch home data")
+            console.log("Data fetched successfully", response.data);            
         } catch (error) {
             if (axios.isAxiosError(error)) {
             console.error("Content Fetching Failed", error.message);
@@ -29,17 +27,16 @@ const Page = () => {
             }
         }
     };
-
-    // Update data on the server
+    
     const updateData = async () => {
         try {
             await axios.post("/api/data", {
-                type: 'home', // Specify the type of data to update
-                value: data.home, // Use the current value of about
+                type: 'home', 
+                value: data.home,
             });
             toast.success("Data updated successfully");
             console.log("Update success");
-            fetchData(); // Fetch updated data after a successful update
+            fetchData();
         } catch (error) {
             if (axios.isAxiosError(error)) {
                 toast.error("Error updating data");
@@ -68,8 +65,8 @@ const Page = () => {
                     <textarea
                         className="p-2 text-black border border-slate-400 shadow-lg rounded-lg focus:outline-none focus:border-gray-800 w-2/3 h-full"
                         id="home"
-                        value={data.home} // Update value to use data state
-                        onChange={(e) => setData({ ...data, home: e.target.value })} // Correctly set state
+                        value={data.home} 
+                        onChange={(e) => setData({ ...data, home: e.target.value })}
                         placeholder="home"
                     />
                 </div>

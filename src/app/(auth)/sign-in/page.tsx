@@ -44,7 +44,7 @@ export default function LoginPage() {
 
     return (
         <>
-        <div className="flex flex-col justify-center items-center w-screen h-screen bg-gradient-to-br from-yellow-300 to-cyan-300">
+        <div className="flex flex-col justify-center items-center w-full h-screen bg-gradient-to-br from-yellow-300 to-cyan-300">
             <div className="flex flex-col items-center justify-center text-black w-fit sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 h-fit py-6 md:py-8 lg:py-12 px-4 rounded-xl shadow-2xl bg-gradient-to-bl from-red-400 to-orange-300">
                 <div className="flex text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold justify-center items-center pt-0 pb-4">
                     <h1>{loading ? "Processing" : "Admin Login"}</h1>

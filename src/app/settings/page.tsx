@@ -5,6 +5,7 @@ import AboutForm from "@/components/form/AboutForm"
 import WorkForm from "@/components/form/WorkForm"
 import StoriesForm from "@/components/form/StoriesForm"
 import ContactForm from "@/components/form/ContactForm"
+import BlackForm from '@/components/form/BlackForm';
 
 const Page = () => {
     const [activeForm, setActiveForm] = useState<"home" | "about" | "work" | "stories" | "contact" | null>(null);
@@ -22,7 +23,7 @@ const Page = () => {
             case 'contact':
                 return <ContactForm />;
             default:
-                return null;
+                return <BlackForm />;
         }
     };
 

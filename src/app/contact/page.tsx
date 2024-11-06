@@ -76,8 +76,10 @@ const Page: React.FC = () => {
       <div className="relative bg-cover flex justify-center items-center bg-center w-full h-[60vh] mt-0" style={{ backgroundImage: 'url(/work-main.jpg)' }}>
         {/* Overlay for dull effect */}
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative container mx-auto h-full flex flex-col justify-center items-start text-white">
-          <h1 className="text-9xl md:text-7xl font-semibold">Contact</h1>
+        <div className="relative container mx-auto flex flex-col items-start justify-center h-full text-white pl-2 lg:pl-8">
+          <h1 className="text-5xl md:text-7xl font-semibold">
+            Contact
+          </h1>
           <p className="mt-4 font-light text-base md:text-lg max-w-2xl text-left">
             Learn more about our non-profit organization and our mission to make a positive impact on the world through our charitable initiatives.
           </p>
@@ -89,13 +91,12 @@ const Page: React.FC = () => {
           <div className='flex justify-center items-center w-full bg-white h-[180px] rounded-3xl border-2 top-[-50px] relative'>
             <div className='flex flex-col justify-center items-center w-1/3  px-9 py-8 tracking-wide '>
               <div className='flex justify-start items-center w-full text-base font-thin mb-2'>Phone:</div>
-              <div className='flex justify-start items-center w-full text-lg font-semibold'>Tel: (555) 123-2222</div>
-              <div className='flex justify-start items-center w-full text-lg font-semibold'>Fax: (555) 123-2225</div>
+              <div className='flex justify-start items-center w-full text-lg font-semibold'>Tel: 9998011597</div>              
             </div>
 
             <div className='flex flex-col justify-center items-center w-1/3  tracking-wide px-6 py-8 '>
               <div className='flex justify-start items-start w-full text-base font-thin mb-2'>DONATION CENTER</div>
-              <div className='flex justify-start items-center w-full text-lg font-semibold'>Om Paradise, Sus Gaon, Pune</div>
+              <div className='flex justify-start items-center w-full text-lg font-semibold'>A6/1 EMERALAD CITY BANER PUNE 411045</div>
             </div>
 
             <div className='flex flex-col justify-center items-center w-1/3 tracking-wide px-6 py-8 '>
@@ -115,16 +116,8 @@ const Page: React.FC = () => {
               <div className='flex flex-col justify-center items-center border-b-[1px] border-gray-400 py-4 w-full'>
                 <div className='flex justify-start items-center w-full mb-2 text-xl font-bold tracking-wide'>Headquarter</div>
                 <div className='flex flex-col justify-start items-center w-full'>
-                  <span className='flex justify-start items-center w-full'>2715 Demo St. San Jose, South Dakota 83475</span>
-                  <span className='flex justify-start items-start w-full mb-3'>(205) 555-0100</span>
-                </div>
-              </div>
-
-              <div className='flex flex-col justify-center items-center  border-b-[1px] border-gray-400 py-4 w-full'>
-                <div className='flex justify-start items-center w-full mb-2 text-xl font-bold tracking-wide'>Illinois Office</div>
-                <div className='flex flex-col justify-start items-center w-full'>
-                  <span className='flex justify-start items-center w-full'>2972 Example Rd. Santa Ana, Illinois 85486</span>
-                  <span className='flex justify-start items-start w-full mb-3'>(603) 555-0123</span>
+                  <span className='flex justify-start items-center w-full'>A6/1 EMERALAD CITY BANER PUNE 411045</span>
+                  <span className='flex justify-start items-start w-full mb-3'>+91-9998011597</span>
                 </div>
               </div>
             </div>

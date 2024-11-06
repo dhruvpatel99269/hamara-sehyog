@@ -79,13 +79,13 @@ const Footer = () => {
 
             <div className='w-full flex flex-col justify-center items-center'>
               <div className='w-full flex justify-start items-center'>
-                1234 Thornridge Cir. Syracuse,
-                Connecticut 56789
-                (406) 555-0121
+                A6/1 Emerald City, Baner, 
+                Pune - 411045
+                +91-9998011597
               </div>
 
               <div className='w-full flex justify-start items-center'>
-                mail@example.com
+                camkbhurat@gmail.com
               </div>
 
               <div className='w-full flex justify-start items-center'>

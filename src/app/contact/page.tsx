@@ -1,7 +1,6 @@
 "use client";
 import React, { useRef, useState, ChangeEvent, FormEvent } from "react";
 import emailjs from "@emailjs/browser";
-import { styles } from '../styles';
 
 // Define the form data type
 interface FormData {

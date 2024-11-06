@@ -44,7 +44,7 @@ const Page = () => {
       </div>
 
       {/* Content Section */}
-      <div className="flex flex-col items-center w-full bg-[#F7F9F1] p-4">
+      <div className="flex flex-col justify-center items-center w-full bg-[#F7F9F1] p-4">
         <div className="flex flex-col lg:flex-row items-center gap-20 w-full lg:w-4/5">
           <div className="flex flex-col items-center w-full lg:w-1/2 text-[#2C3A04] space-y-6 px-4 py-8 lg:py-0">
             <h2 className="text-3xl lg:text-4xl font-semibold text-center">Making the world a better place</h2>

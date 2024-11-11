@@ -90,7 +90,7 @@ const Page: React.FC = () => {
           <div className='flex justify-center items-center w-full bg-white h-[180px] rounded-3xl border-2 top-[-50px] relative'>
             <div className='flex flex-col justify-center items-center w-1/3  px-9 py-8 tracking-wide '>
               <div className='flex justify-start items-center w-full text-base font-thin mb-2'>Phone:</div>
-              <div className='flex justify-start items-center w-full text-lg font-semibold'>Tel: 9998011597</div>              
+              <div className='flex justify-start items-center w-full text-lg font-semibold'>Tel: 9998011597</div>
             </div>
 
             <div className='flex flex-col justify-center items-center w-1/3  tracking-wide px-6 py-8 '>
@@ -169,13 +169,13 @@ const Page: React.FC = () => {
                   <div className='flex justify-center items-center'>
                     <button
                       type='submit'
-                      className='bg-[#66B40B] text-white py-3 px-8 rounded-xl outline-none w-1/3 font-bold shadow-md shadow-primary'
+                      className='bg-[#66B40B] text-white py-3 px-8 rounded-xl outline-none w-1/3 font-bold shadow-md shadow-primary
+               transition-transform duration-300 hover:scale-105'
                       disabled={loading} // Disable button while loading
                     >
                       {loading ? "Sending..." : "Send"}
                     </button>
                   </div>
-
                 </form>
 
               </div>

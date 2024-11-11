@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 const Page = () => {
 
   const [data, setData] = React.useState({
-    home:"",
+    home: "",
     about: "",
     stories: "",
     contact: "",
@@ -111,23 +111,28 @@ const Page = () => {
             </div>
           </div>
 
-          <div className='flex flex-col lg:flex-row xl:flex-row mt-36 justify-center items-center px-2 lg:px-10 xl:px-10'>
+          <div className='flex flex-col lg:flex-row xl:flex-row mt-36 justify-center items-center px-2 lg:px-10 xl:px-10 gap-10'>
+            {/* Left Column */}
             <div className='flex flex-col items-start justify-center text-[#2C3A04] mt-6 w-full lg:w-1/2 xl:w-1/2'>
               <h3 className='text-2xl mb-2 font-semibold text-left'>
                 How we work
               </h3>
-              <p className='text-left '>We collaborate with local communities, volunteers, and donors to achieve our goal of making a meaningful impact on people&apos;s lives. Our non-profit organization strives to make a positive difference in society by supporting those in need.</p>
-              <a href="#" className='mt-2 text-lg font-semibold'>Learn More →</a>
+              <p className='text-left'>
+                We collaborate with local communities, volunteers, and donors to achieve our goal of making a meaningful impact on people&apos;s lives. Our non-profit organization strives to make a positive difference in society by supporting those in need.
+              </p>
             </div>
 
+            {/* Right Column */}
             <div className='flex flex-col items-start justify-center text-[#2C3A04] mt-6 w-full lg:w-1/2 xl:w-1/2'>
               <h3 className='text-2xl mb-2 font-semibold text-left'>
                 Proofing our impact
               </h3>
-              <p className='text-left '>We are committed to transparency and accountability which is why we regularly share our impact reports with our donors. Our non-profit organization&apos;s work is evidence-based, and we consistently strive to improve our impact through innovative solutions.</p>
-              <a href="#" className='mt-2 text-lg font-semibold'>See Proof →</a>
+              <p className='text-left'>
+                We are committed to transparency and accountability which is why we regularly share our impact reports with our donors. Our non-profit organization&apos;s work is evidence-based, and we consistently strive to improve our impact through innovative solutions.
+              </p>
             </div>
           </div>
+
         </div>
 
         <div className='flex flex-col lg:flex-row xl:flex-row w-full justify-center items-center gap-20 mt-16 text-[#2C3A04] px-2 lg:px-10 xl:px-10'>

@@ -1,5 +1,6 @@
 "use client"
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react'
 
 const Hero = () => {
@@ -17,9 +18,11 @@ const Hero = () => {
             <div className="mt-4 font-light md:text-xl max-w-2xl flex text-center justify-center items-center">
               Empowering Communities Together: Join Us in Making a Difference
             </div>
-            <div className='flex justify-center items-center w-fit py-[14px] px-7 rounded-xl bg-[#66B40B] cursor-pointer text-white text-lg font-semibold'>
-              Donate Now
-            </div>
+            <Link href="/contact">
+              <div className='flex justify-center items-center w-fit py-[14px] px-7 rounded-xl bg-[#66B40B] cursor-pointer text-white text-lg font-semibold'>
+                Donate Now
+              </div>
+            </Link>
           </div>
         </div>
       </div>
@@ -32,22 +35,14 @@ const Hero = () => {
             </div>
 
             <div className='flex py-2 justify-start items-center w-full text-[#2C3A04] text-2xl font-semibold'>
-              Donation
+              Make a Difference
             </div>
 
             <div className='flex py-2 justify-start items-center w-full'>
-              Contribute today and help us change lives and build a better future.
+              Your contribution helps transform lives and communities for the better.
             </div>
 
-            <div className='flex py-2 justify-start gap-3 cursor-pointer items-center w-full font-bold text-lg'>
-              Learn More
-              <Image
-                src="/right-arrow.svg" // Path to the SVG in the public folder
-                alt="Right arrow Icon"
-                width={15} // Set the width
-                height={15} // Set the height
-              />
-            </div>
+
           </div>
 
           <div className='flex flex-col justify-center lg:justify-start xl:justify-start items-center w-fit lg:w-1/3 xl:w-1/3 py-5 px-6 border-b-[1px] md:border-r-[1px] lg:border-r-[1px] xl:border-r-[1px]'>
@@ -56,22 +51,14 @@ const Hero = () => {
             </div>
 
             <div className='flex py-2 justify-start items-center w-full text-[#2C3A04] text-2xl font-semibold'>
-              Donation
+              Empower Lives
             </div>
 
             <div className='flex py-2 justify-start items-center w-full'>
-              Contribute today and help us change lives and build a better future.
+              Join us in bringing hope and new opportunities to those in need.
             </div>
 
-            <div className='flex py-2 justify-start gap-3 cursor-pointer items-center w-full font-bold text-lg'>
-              Learn More
-              <Image
-                src="/right-arrow.svg" // Path to the SVG in the public folder
-                alt="Right arrow Icon"
-                width={15} // Set the width
-                height={15} // Set the height
-              />
-            </div>
+
           </div>
 
           <div className='flex flex-col justify-center lg:justify-start xl:justify-start items-center w-fit lg:w-1/3 xl:w-1/3 py-5 px-6'>
@@ -80,22 +67,13 @@ const Hero = () => {
             </div>
 
             <div className='flex py-2 justify-start items-center w-full text-[#2C3A04] text-2xl font-semibold'>
-              Donation
+              Support Our Mission
             </div>
 
             <div className='flex py-2 justify-start items-center w-full'>
-              Contribute today and help us change lives and build a better future.
+              Partner with us to create lasting change and build a brighter future.
             </div>
 
-            <div className='flex py-2 justify-start gap-3 cursor-pointer items-center w-full font-bold text-lg'>
-              Learn More
-              <Image
-                src="/right-arrow.svg" // Path to the SVG in the public folder
-                alt="Right arrow Icon"
-                width={15} // Set the width
-                height={15} // Set the height
-              />
-            </div>
           </div>
         </div>
 
@@ -118,9 +96,7 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className='flex rounded-lg text-black hover:bg-black hover:text-orange-50 font-medium text-xl px-4 py-3 mt-4 transition ease-out duration-5000 border border-black'>
-              Read More
-            </div>
+
           </div>
 
           <div className='flex flex-col sm:flex-row md:flex-row lg:flex-row xl:flex-row w-full md:w-3/4 lg:w-1/2 xl:w-1/2 justify-center items-center mb-28 sm:space-x-12 md:space-x-12'>
@@ -164,43 +140,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className='flex flex-col lg:flex-row xl:flex-row justify-around items-center w-full px-32'>
-          <div className='flex flex-col justify-center items-center w-full lg:w-1/4 xl:w-1/4 border-b-2 lg:border-b-0 xl:border-b-0 lg:border-r-2 xl:border-r-2 mt-4 py-4 lg:mt-0 xl:py-0'>
-            <div className='flex text-[44px] leading-tight font-[600]'>
-              20M+
-            </div>
-            <div className='flex'>
-              People served worldwide
-            </div>
-          </div>
 
-          <div className='flex flex-col justify-center items-center w-full lg:w-1/4 xl:w-1/4 border-b-2 lg:border-b-0 xl:border-b-0 lg:border-r-2 xl:border-r-2 mt-4 py-4 lg:mt-0 xl:py-0'>
-            <div className='flex text-[44px] leading-tight font-[600]'>
-              142,790
-            </div>
-            <div className='flex'>
-              Projects funded
-            </div>
-          </div>
-
-          <div className='flex flex-col justify-center items-center w-full lg:w-1/4 xl:w-1/4 border-b-2 lg:border-b-0 xl:border-b-0 lg:border-r-2 xl:border-r-2 mt-4 py-4 lg:mt-0 xl:py-0'>
-            <div className='flex text-[44px] leading-tight font-[600]'>
-              1.8M
-            </div>
-            <div className='flex'>
-              People to take action
-            </div>
-          </div>
-
-          <div className='flex flex-col justify-center items-center w-full lg:w-1/4 xl:w-1/4 mt-4 py-4 lg:mt-0 xl:py-0'>
-            <div className='flex text-[44px] leading-tight font-[600]'>
-              5,246
-            </div>
-            <div className='flex'>
-              Partner Organization
-            </div>
-          </div>
-        </div>
       </div>
 
       <div className='flex flex-col justify-center items-center w-full bg-[#F7F9F1] mt-24'>
@@ -213,10 +153,11 @@ const Hero = () => {
               Every dollar counts and helps us bring hope and essential resources to those in need.
             </p>
           </div>
-
-          <div className='flex justify-start text-lg cursor-pointer items-center w-fit bg-white text-black hover:bg-black hover:text-white rounded-lg px-5 py-3 transition duration-500 mt-6 lg:mt-0 xl:mt-0'>
-            Donate Now
-          </div>
+          <Link href="/contact">
+            <div className='flex justify-start text-lg cursor-pointer items-center w-fit bg-white text-black hover:bg-black hover:text-white rounded-lg px-5 py-3 transition duration-500 mt-6 lg:mt-0 xl:mt-0'>
+              Donate Now
+            </div>
+          </Link>
         </div>
 
         <div className='flex flex-col lg:flex-row xl:flex-row justify-center items-center text-[#2C3A04] w-full my-20 md:w-5/6 lg:w-5/6 xl:w-5/6 mx-10'>
@@ -241,9 +182,11 @@ const Hero = () => {
               Become part of a transformative movement by supporting our non-profit organization. Together we can make lasting change.
             </div>
 
-            <div className='flex justify-start items-start rounded-xl my-6 text-lg font-semibold px-7 py-4 border-black hover:bg-black hover:text-orange-50 border w-fit'>
-              Register Now
-            </div>
+            <Link href="/contact">
+              <div className='flex justify-start items-start rounded-xl my-6 text-lg font-semibold px-7 py-4 border-black hover:bg-black hover:text-orange-50 border w-fit'>
+                Register Now
+              </div>
+            </Link>
           </div>
         </div>
 
@@ -263,22 +206,13 @@ const Hero = () => {
               </div>
 
               <div className='flex justify-start items-center w-4/5 text-2xl font-medium'>
-                A Better Education for Everyone
+                Building Stronger Communities Together
               </div>
 
               <div className='flex justify-start items-center w-4/5 my-4'>
                 Our non-profit organisation is dedicated to improving access to education for all. With your support, we can help provide the resources and opportunities needed for success.
               </div>
 
-              <div className='flex justify-start items-center w-4/5 text-[18px] font-semibold gap-2'>
-                Read More
-                <Image
-                  src="/right-arrow.svg" // Path to the SVG in the public folder
-                  alt="Right arrow Icon"
-                  width={15} // Set the width
-                  height={15} // Set the height
-                />
-              </div>
             </div>
 
             <div className='flex flex-col justify-center items-center w-full lg:w-1/2 xl:w-1/2 border-r pb-20 bg-white border-gray-300 border-[1px] rounded-xl lg:rpunded-3xl xl:rounded-3xl mt-24'>
@@ -294,15 +228,6 @@ const Hero = () => {
                 Our non-profit organisation is dedicated to improving access to education for all. With your support, we can help provide the resources and opportunities needed for success.
               </div>
 
-              <div className='flex justify-start items-center w-4/5 text-[18px] font-semibold gap-2'>
-                Read More
-                <Image
-                  src="/right-arrow.svg" // Path to the SVG in the public folder
-                  alt="Right arrow Icon"
-                  width={15} // Set the width
-                  height={15} // Set the height
-                />
-              </div>
             </div>
           </div>
         </div>

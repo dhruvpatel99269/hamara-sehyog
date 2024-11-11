@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation"; // Import useRouter for routing
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { FaBars, FaTimes } from "react-icons/fa"; // Import icons for hamburger menu
+import Link from "next/link";
 
 type NavItem = {
     name: string;
@@ -32,10 +33,10 @@ export const FloatingNav = ({
     useMotionValueEvent(scrollYProgress, "change", (current) => {
         if (typeof current === "number") {
             const previous = scrollYProgress.getPrevious();
-            
+
             if (previous !== undefined) {
                 const direction = current - previous;
-    
+
                 if (scrollYProgress.get() < 0.05) {
                     setVisible(true);
                 } else {
@@ -44,7 +45,7 @@ export const FloatingNav = ({
             }
         }
     });
-    
+
 
     return (
         <AnimatePresence mode="wait">
@@ -69,9 +70,11 @@ export const FloatingNav = ({
                     border: "1px solid rgba(255, 255, 255, 0.125)",
                 }}
             >
-                <div className="flex justify-center items-center">
-                    <Image src="/logo.jpg" alt="logo" width={100} height={100} />
-                </div>
+                <Link href="/">
+                    <div className="flex justify-center items-center">
+                        <Image src="/logo.jpg" alt="logo" width={100} height={100} />
+                    </div>
+                </Link>
                 {/* Hamburger menu for mobile */}
                 <div className="lg:hidden">
                     <button onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle Menu">

@@ -42,9 +42,6 @@ const Page = () => {
                             Add User
                         </div>
                     </div>
-                    <div className='w-full flex justify-center lg:justify-start xl:justify-start items-center cursor-pointer text-[15px] md:text-[17px] lg:text-[20px] xl:text-[20px] px-4'>
-                        Remove User
-                    </div>
                 </div>
 
                 <div className='w-full flex flex-col justify-center items-center my-4 md:mt-4 lg:mt-6 xl:mt-6'>
